@@ -27,14 +27,10 @@ mutate(d2,Decade = as.character(floor(startYear/10)*10 -1900))
 d3
 ```
 
-
-
-
 Use {ggplot2} to plot histograms of the distribution of runtimeMinutes for each decade.
 ```{r}
 ggplot(data = d3, aes(x = runtimeMinutes))+ geom_histogram()+ facet_wrap(~Decade)
 ```
-
 
 
  Use a one-line statement to calculate the population mean and population standard deviation in runtimeMinutes for each decade and save the results in a new dataframe, results.
@@ -42,7 +38,6 @@ ggplot(data = d3, aes(x = runtimeMinutes))+ geom_histogram()+ facet_wrap(~Decade
 ```{r}
 results <- cbind.data.frame(aggregate(d3$runtimeMinutes, list(d3$Decade),mean),aggregate(d3$runtimeMinutes, list(d3$Decade),sd))
 results
-
 ```
 
 
@@ -427,7 +422,7 @@ histogram(z$years_of_education)
 qqnorm(z$years_of_education)
 ```
 
-Height, weight, and age are all normally distributed. Number of zombies killed looks like a gamma distribution. I'm not really sure but its also kind gammaish. 
+Height, weight, and age are all normally distributed. Number of zombies killed looks like a gamma distribution. Years of education is not normally distributed either. Maybe its a gamma distribution?
 
 
 Now use the sample_n() function from {dplyr} to sample ONE subset of 50 zombie apocalypse survivors (without replacement)
